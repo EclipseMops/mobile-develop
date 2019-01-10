@@ -1,5 +1,6 @@
 import UIKit
 import GoogleMaps
+import CoreMotion
 
 class CameraViewController: ViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
@@ -7,6 +8,8 @@ class CameraViewController: ViewController, UIImagePickerControllerDelegate, UIN
     let locationManager = CLLocationManager()
     var lat = 0.0
     var lng = 0.0
+    @IBOutlet weak var accelerometerDataLabel: UILabel!
+    var accelerometer = CMMotionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +37,25 @@ class CameraViewController: ViewController, UIImagePickerControllerDelegate, UIN
         let imageFromPC = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageView.image = imageFromPC
         self.dismiss(animated: true, completion: nil)
+        
+        accel()
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.openPrevious(false)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func accel() {
+        guard accelerometer.isAccelerometerAvailable else {
+            return
+        }
+        accelerometer.startAccelerometerUpdates(to: .main) { (data, error) in
+            guard let data = data, error == nil else {
+                return
+            }
+            self.accelerometerDataLabel.text = "(" + String(data.acceleration.x) + ", " + String(data.acceleration.y) + ", " + String(data.acceleration.z) + ")"
+        }
     }
     
     @IBAction func saveOnMapBtnClick(_ sender: Any) {

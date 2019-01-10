@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bxx-sN-2ti">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bxx-sN-2ti">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -147,13 +148,22 @@
                                     <action selector="saveOnMapBtnClick:" destination="4dk-8r-MbN" eventType="touchUpInside" id="Bhh-ie-zsP"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhR-hn-XfF">
+                                <rect key="frame" x="50" y="65" width="275" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Auv-vT-BLK" firstAttribute="top" secondItem="LhR-hn-XfF" secondAttribute="bottom" constant="8" id="1jp-fK-tTv"/>
                             <constraint firstItem="36J-VC-Ssa" firstAttribute="leading" secondItem="jXJ-76-hlG" secondAttribute="leading" constant="50" id="CTS-cq-cJ8"/>
                             <constraint firstItem="jXJ-76-hlG" firstAttribute="trailing" secondItem="36J-VC-Ssa" secondAttribute="trailing" constant="50" id="FNx-G2-VOA"/>
+                            <constraint firstItem="LhR-hn-XfF" firstAttribute="leading" secondItem="jXJ-76-hlG" secondAttribute="leading" constant="50" id="H23-TR-KBm"/>
+                            <constraint firstItem="LhR-hn-XfF" firstAttribute="top" secondItem="jXJ-76-hlG" secondAttribute="top" constant="1" id="biV-Dm-Xn8"/>
                             <constraint firstItem="Auv-vT-BLK" firstAttribute="leading" secondItem="jXJ-76-hlG" secondAttribute="leading" constant="50" id="f3N-z6-sDK"/>
-                            <constraint firstItem="Auv-vT-BLK" firstAttribute="top" secondItem="jXJ-76-hlG" secondAttribute="top" constant="30" id="qM7-Qi-a2D"/>
+                            <constraint firstItem="jXJ-76-hlG" firstAttribute="trailing" secondItem="LhR-hn-XfF" secondAttribute="trailing" constant="50" id="fAx-HR-B0o"/>
                             <constraint firstItem="jXJ-76-hlG" firstAttribute="trailing" secondItem="Auv-vT-BLK" secondAttribute="trailing" constant="50" id="tXj-iW-Ynq"/>
                             <constraint firstItem="36J-VC-Ssa" firstAttribute="top" secondItem="Auv-vT-BLK" secondAttribute="bottom" constant="10" id="vNm-5u-SWh"/>
                         </constraints>
@@ -161,6 +171,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="izF-9U-W0p"/>
                     <connections>
+                        <outlet property="accelerometerDataLabel" destination="LhR-hn-XfF" id="EZW-dR-FHW"/>
                         <outlet property="imageView" destination="Auv-vT-BLK" id="Au3-Qw-ktf"/>
                     </connections>
                 </viewController>
@@ -296,7 +307,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lF-Tc-t5C">
-                                                    <rect key="frame" x="20" y="35" width="42" height="21"/>
+                                                    <rect key="frame" x="20" y="15" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
