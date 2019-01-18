@@ -23,10 +23,6 @@ class ViewController: UIViewController {
         initLeftMenu()
     }
     
-    func initBackButton() {
-        createNavigationButton(action: #selector(backButtonClick), imgName: "back", padding: -10)
-    }
-    
     func initLoadingView() {
         loadingLabel = UILabel(frame: CGRect(x: self.view.frame.width / 2 - 100, y: self.view.frame.height / 2 - 15, width: 200, height: 30))
         loadingLabel.backgroundColor = .red
